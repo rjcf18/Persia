@@ -1,6 +1,6 @@
 # Pepper
 
-A simple "bot", or "assistant" which responds to several commands, using TTS and speech recognition.
+A simple "bot", or "assistant" which responds to several commands, using TTS and speech recognition. It runs on Python 2.7.11+ and Python 3.5.1+.
 
 
 ## Dependencies
