@@ -39,10 +39,9 @@ portaudio.h may not link correctly on Mac OSX machines, if so happens run:
 
 	$ pip install wolframalpha
 
-### python-geoip
+### geocoder - Simple and consistent geocoding library
 
-	$ pip install python-geoip
-	$ pip install python-geoip-geolite2
+	$ pip install geocoder
 
 ### requests
 

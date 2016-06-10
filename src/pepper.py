@@ -7,8 +7,8 @@ import webbrowser
 import wolframalpha
 import sys
 import ipgetter
+import geocoder
 from weather_report import *
-from geoip import geolite2
 from gtts import gTTS
 
 logger = logging.getLogger(__name__)
@@ -75,7 +75,7 @@ class Pepper(object):
             else:
                 self.speak("I'm sorry boss, but I'm unable to find a response.")
 
-            string = string.encode('ascii', 'ignore')
+            #string = string.encode('ascii', 'ignore')
             self.speak("The result is: " + string)
             logger.debug("The result is: "+ string)
         else:
@@ -165,25 +165,25 @@ class Pepper(object):
         elif "calculate" in text:
             self.handle_wolframalpha_search(text.split("calculate ")[1])
         elif any(word in text for word in self.WEATHER):
-            if " in " in text:
+            if ' in ' in text:
                 place = text.split(" in ")[1]
                 out = data_output(data_organizer(data_fetch(url_builder_city(place))))
-                if "brief" in text:
+                if 'brief' in text:
                     self.speak(out[0])
-                elif "detailed" in text:
+                elif 'detailed' in text:
                     self.speak(out[1])
                 else:
                     self.speak(out[0])
             else:
                 IP = ipgetter.myip()
-                match = geolite2.lookup(IP).to_dict()
-                coords = match['location']
+                match = geocoder.ip(IP)
+                coords = match.latlng
                 data = data_organizer(data_fetch(url_builder_coords(coords[0], coords[1])))
                 out = data_output(data)
 
-                if "brief" in text:
+                if 'brief' in text:
                     self.speak(out[0])
-                elif "detailed" in text:
+                elif 'detailed' in text:
                     self.speak(out[1])
                 else:
                     self.speak(out[0])
