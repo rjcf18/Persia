@@ -67,6 +67,19 @@ In order to run the program just run the following command after installing all 
 Or just use the Makefile:
 
 	$ make run
+	
+# Examples of commands that may be used to interact with the bot
 
-
-
+	$ Pepper (Bots' name)
+	$ Shutdown/Go Away/Stop Listening/That's all
+	$ How are you?
+	$ Thank you
+	$ What time is it?/Tell me the time
+	$ What day is it?
+	$ Open browser/map/gmail/youtube/facebook/home folder/music/pictures/documents...
+	$ Search ... (opens a google search)
+	$ Wolfram search ... (searches in the wolframalpha website)
+	$ Calculate ... (performs calculations also using wolframalpha)
+	$ Report the weather/Weather/Tell me the weather/Weather report in ...(if you dont specify where, it fetches the location according to the external IP address) detailed(more detailed weather report)/brief (a very brief weather report)
+	$ Detect faces/Facial detection (tries to detect faces and reports back how many faces where detected)
+	$ ...
