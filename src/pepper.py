@@ -57,7 +57,8 @@ class Pepper(object):
         """
 
         tts = gTTS(text=(text), lang='en')
-        tts.save("data/speech.mp3")
+        path = os.path.realpath(__file__)
+        tts.save(path[:len(path)-10]+"/data/speech.mp3")
         os.system("mpg321 data/speech.mp3 -quiet")
 
     @classmethod
