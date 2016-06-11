@@ -10,6 +10,7 @@ def main():
     logging.basicConfig(format=FORMAT, level=logging.DEBUG)
 
     # Initialize Pepper
+    Pepper.speak('Greetings. My name is Pepper. How could I be of service?')
     Pepper.initiate_Pepper()
 
 if __name__ == '__main__':

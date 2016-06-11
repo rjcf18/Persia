@@ -8,8 +8,10 @@ import wolframalpha
 import sys
 import ipgetter
 import geocoder
-from weather_report import *
 from gtts import gTTS
+from weather_report import *
+from facial_detection import *
+
 
 logger = logging.getLogger(__name__)
 
@@ -27,7 +29,7 @@ class Pepper(object):
                             "what day is it", "which day is today", "what day's it"
                             "report what day is it"]
 
-    GREETING = ["hello", "hi", "greetings"]
+    GREETING = ["hello", "greetings"]
 
     OPEN_ACTIONS = ["browser", "map", "maps", "gmail", "g mail",
                            "google mail", "facebook", "face book", "you tube",
@@ -55,8 +57,8 @@ class Pepper(object):
         """
 
         tts = gTTS(text=(text), lang='en')
-        tts.save("speech.mp3")
-        os.system("mpg321 speech.mp3 -quiet")
+        tts.save("data/speech.mp3")
+        os.system("mpg321 data/speech.mp3 -quiet")
 
     @classmethod
     def handle_wolframalpha_search(self, query):
@@ -105,7 +107,7 @@ class Pepper(object):
             self.speak(time.strftime("%x"))
         elif any(word in text for word in self.TIME_COMMANDS):
             self.speak(time.strftime("%X"))
-        elif any(word in text for word in self.GREETING):
+        elif any(word in text for word in self.GREETING) or text=="hi":
             self.speak("Hello boss.")
         elif any(string == text for string in self.SWEAR):
             self.speak("I'm sorry boss, but I was not built to execute such a task.")
@@ -187,14 +189,20 @@ class Pepper(object):
                     self.speak(out[1])
                 else:
                     self.speak(out[0])
+        elif "detect" in text or "facial detection" in text:
+            if "faces" in text:
+                faces = detect_faces()
+                if faces == 1:
+                    self.speak("I'm detecting "+str(faces)+" face. I stored the frame in the data folder.")
+                else:
+                    self.speak("I'm detecting "+str(faces)+" faces. I stored the frame in the data folder.")
+
 
     @classmethod
     def initiate_Pepper(self):
         """
         Initializes Pepper and starts the listening loop
         """
-
-        self.speak('Greetings. My name is Pepper. How could I be of service?')
 
         # starts the recognizer
         r = sr.Recognizer()
