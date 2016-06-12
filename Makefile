@@ -1,6 +1,15 @@
+opencv2.4:
+	sudo apt-get install libopencv-dev python-opencv opencv-data
+
 install:
-	sudo apt-get install pip python-pyaudio mpg321 build-essential cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev libv4l-dev python-numpy python-scipy unzip libopencv-dev python-opencv opencv-data
+	sudo apt-get install python-pip python-pyaudio mpg321 python-numpy python-scipy unzip
 	sudo pip install pyaudio SpeechRecognition gtts requests geocoder
+	make opencv2.4
 
 run:
 	python src/main.py
+
+clean:
+	rm *.pyc
+	rm __pycache__/*.pyc
+	rmdir __pycache__

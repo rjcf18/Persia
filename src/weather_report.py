@@ -26,7 +26,7 @@ def url_builder_city(city):
 
 def url_builder_coords(latitude, longitude):
     """
-    Builds the url to access the OpenWeatherMap API passing a place as parameter
+    Builds the url to access the OpenWeatherMap API passing coordinates as parameter
     """
     # valid OpenWeatherMap API key
     api_key = '4723ead7e237c638e42b499385b39a16'
@@ -74,7 +74,9 @@ def data_output(data):
     Outputs the data in the terminal and builds a brief and detailed reports of
     the weather
     """
+
     m_symbol = '\xb0' + 'C'
+
 
     print('---------------------------------------')
     print('Current weather in: {}, {}:'.format(data['city'], data['country']))

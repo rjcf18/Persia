@@ -1,15 +1,17 @@
 import cv2
-import sys
+import sys, os
+import math
 
 def detect_faces():
-
-    faceCascade = cv2.CascadeClassifier("datahaarcascade_frontalface_default.xml")
+    path = os.path.dirname(os.path.realpath(__file__))
+    #print(path)
+    faceCascade = cv2.CascadeClassifier(path+"/data/datahaarcascade_frontalface_default.xml")
 
     video_capture = cv2.VideoCapture(0)
 
     faces_number = 0
 
-    frames = 5
+    frames = 2
 
     while frames > 0:
 
@@ -20,17 +22,19 @@ def detect_faces():
 
         faces = faceCascade.detectMultiScale(
             gray,
-            scaleFactor=1.1,
+            scaleFactor=1.3,
             minNeighbors=5,
             minSize=(30, 30),
             flags=cv2.cv.CV_HAAR_SCALE_IMAGE
         )
 
         faces_number = len(faces)
+        #print(faces_number)
+
 
         # Draw a rectangle around the faces
         for (x, y, w, h) in faces:
-            cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 255, 0), 2)
+            cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
         frames = frames - 1
 
@@ -38,7 +42,9 @@ def detect_faces():
 
     # Display the resulting frame
     #cv2.imshow('Video', frame)
-    cv2.imwrite("output/faces.jpg",frame)
+
+    cv2.imwrite(path+"/data/faces.jpg",frame)
+
     print(str(faces_number) + " faces detected.")
 
     #if cv2.waitKey(1) & 0xFF == ord('q'):

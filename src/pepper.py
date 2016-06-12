@@ -57,9 +57,9 @@ class Pepper(object):
         """
 
         tts = gTTS(text=(text), lang='en')
-        path = os.path.realpath(__file__)
-        tts.save(path[:len(path)-10]+"/data/speech.mp3")
-        os.system("mpg321 data/speech.mp3 -quiet")
+        path = os.path.dirname(os.path.realpath(__file__))
+        tts.save(path+"/data/speech.mp3")
+        os.system("mpg321 "+path+ "/data/speech.mp3 -quiet")
 
     @classmethod
     def handle_wolframalpha_search(self, query):

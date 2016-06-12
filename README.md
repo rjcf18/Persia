@@ -2,9 +2,13 @@
 
 A simple "bot", or "assistant" which responds to several commands, using TTS and speech recognition. It runs on Python 2.7+ and Python 3.5+.
 
-Computer Vision was introduced in the project, but this part works currently only on Python 2.7+ using Opencv 2.4. The whole program can be executed with Python 3.4+ or 3.5+ by installing Opencv 3.1.0. 
+Computer Vision was introduced in the project, but this part works currently only on Python 2.7+ using Opencv 2.4.  In order to run the whole program in Python 3.4+ or 3.5+ you'll have to install Opencv 3.1.0. 
 
-Should you want to run this program in Python 3+ (3.4/3.5) just follow the steps described here: http://www.pyimagesearch.com/2015/07/20/install-opencv-3-0-and-python-3-4-on-ubuntu/
+Should you want to run the program in Python 3+ (3.4/3.5) just follow the steps described here: 
+
+- http://cyaninfinite.com/tutorials/installing-opencv-in-ubuntu-for-python-3/http://
+	or here:
+- www.pyimagesearch.com/2015/07/20/install-opencv-3-0-and-python-3-4-on-ubuntu/
 
 
 ## Dependencies
@@ -57,7 +61,11 @@ portaudio.h may not link correctly on Mac OSX machines, if so happens run:
 
 	or 
 
-	follow these steps: http://www.pyimagesearch.com/2015/07/20/install-opencv-3-0-and-python-3-4-on-ubuntu/
+	follow these steps here: 
+
+- http://cyaninfinite.com/tutorials/installing-opencv-in-ubuntu-for-python-3/http://
+	or here:
+- www.pyimagesearch.com/2015/07/20/install-opencv-3-0-and-python-3-4-on-ubuntu/
 
 # Running
 In order to run the program just run the following command after installing all the dependencies:
