@@ -61,7 +61,6 @@ portaudio.h may not link correctly on Mac OSX machines, if so happens run:
 
 	$ apt-get install libopencv-dev python-opencv opencv-data python-numpy python-scipy
 
-	
 	or 
 
 	follow these steps here: 
