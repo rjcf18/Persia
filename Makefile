@@ -10,6 +10,6 @@ run:
 	python src/main.py
 
 clean:
-	rm *.pyc
-	rm __pycache__/*.pyc
-	rmdir __pycache__
+	rm src/*.pyc
+	rm src/__pycache__/*.pyc
+	rmdir src/__pycache__
