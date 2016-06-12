@@ -6,8 +6,10 @@ Computer Vision was introduced in the project, but this part works currently onl
 
 Should you want to run the program in Python 3+ (3.4/3.5) just follow the steps described here: 
 
-- http://cyaninfinite.com/tutorials/installing-opencv-in-ubuntu-for-python-3/http://
+- http://cyaninfinite.com/tutorials/installing-opencv-in-ubuntu-for-python-3/
+	
 	or here:
+
 - www.pyimagesearch.com/2015/07/20/install-opencv-3-0-and-python-3-4-on-ubuntu/
 
 
@@ -63,8 +65,10 @@ portaudio.h may not link correctly on Mac OSX machines, if so happens run:
 
 	follow these steps here: 
 
-- http://cyaninfinite.com/tutorials/installing-opencv-in-ubuntu-for-python-3/http://
+- http://cyaninfinite.com/tutorials/installing-opencv-in-ubuntu-for-python-3/
+
 	or here:
+
 - www.pyimagesearch.com/2015/07/20/install-opencv-3-0-and-python-3-4-on-ubuntu/
 
 # Running
