@@ -2,84 +2,63 @@
 
 A simple "bot", or "assistant" which responds to several commands, using TTS and speech recognition. It runs on Python 2.7+ and Python 3.5+.
 
-Computer Vision was introduced in the project, but this part works currently only on Python 2.7+ using Opencv 2.4.  In order to run the whole program in Python 3.4+ or 3.5+ you'll have to install Opencv 3.1.0. 
+Computer Vision was introduced in the project, but this part works currently only on Python 2.7+ using Opencv 2.4.  In order to run the whole program in Python 3.4+ or 3.5+ you'll have to install Opencv 3.1.0.
 
-Should you want to run the program in Python 3+ (3.4/3.5) just follow the steps described here: 
-
-- http://cyaninfinite.com/tutorials/installing-opencv-in-ubuntu-for-python-3/
-	
-	or here:
-
-- www.pyimagesearch.com/2015/07/20/install-opencv-3-0-and-python-3-4-on-ubuntu/
-
-
-## Dependencies
-
-### There are several dependencies to solve in order to run this project. There is a makefile to make the process easier. 
-
-	$ make install
-
-### Install PyAudio
-
-In most machines just run:
-
-	$ pip install pyaudio
-   or
-
-	$ apt-get install python-pyaudio
-
-
-portaudio.h may not link correctly on Mac OSX machines, if so happens run:
-
-	$ pip install --global-option='build_ext' --global-option='-I/usr/local/include' --global-option='-L/usr/local/lib' pyaudio
-
-### SpeechRecognition - library using CMU Sphinx project, Google services, or Wit.ai
-
-	$ pip install SpeechRecognition
-    
-### gTTS - Google Text-To-Speech
-
-	$ pip install gtts
-
-### mpg321
-
-	$ apt-get install mpg321
-
-### WolframAlpha
-
-	$ pip install wolframalpha
-
-### geocoder - Simple and consistent geocoding library
-
-	$ pip install geocoder
-
-### requests
-
-	$ pip install requests
-
-### OpenCV - Open Source Computer Vision
-
-	$ apt-get install libopencv-dev python-opencv opencv-data python-numpy python-scipy
-
-	or 
-
-	follow these steps here: 
+Should you want to run the program in Python 3+ (3.4/3.5) just follow the steps described here:
 
 - http://cyaninfinite.com/tutorials/installing-opencv-in-ubuntu-for-python-3/
 
 	or here:
 
 - www.pyimagesearch.com/2015/07/20/install-opencv-3-0-and-python-3-4-on-ubuntu/
+
+
+# Dependencies
+There are several dependencies to solve in order to run this project.
+
+##### Ubuntu / Debain
+
+```
+  # sudo apt install python3-pip libopencv-dev opencv-data python3-dev portaudio19-dev mpg321
+```
+
+##### Python
+
+```
+  # pip3 install virtualenv
+  $ virtualenv pepper-bot -p python3
+  $ source pepper-bot/bin/activate
+  $ pip install -r py-requirements/dev.txt
+
+```
+
+##### OpenCV
+
+```
+  $ git clone https://github.com/Itseez/opencv.git
+  $ cd opencv
+  $ mkdir release
+  $ cd release
+  $ cmake -D CMAKE_BUILD_TYPE=RELEASE \
+	-D CMAKE_INSTALL_PREFIX=/usr/local \
+	-D INSTALL_C_EXAMPLES=ON \
+	-D INSTALL_PYTHON_EXAMPLES=ON \
+	-D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules \
+	-D BUILD_EXAMPLES=ON ..
+	$
+  $ make -j4
+  # sudo make install
+	# sudo ldconfig
+	# sudo ln -s /usr/local/lib/python3.5/site-packages/cv2.('version').so /path/to/the/virtualenv/folder/lib/python3.5/site-packages/cv2.so
+
+```
 
 # Running
 In order to run the program just run the following command after installing all the dependencies:
 
-	$ python main.py
+	$ source pepper-bot/bin/activate
+	$ python src/main.py
 
-Or just use the Makefile:
-
-	$ make run
-	
 # Examples of commands that may be used to interact with the bot
 
 	$ Pepper (Bots' name)
