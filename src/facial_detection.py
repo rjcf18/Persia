@@ -5,13 +5,13 @@ import math
 def detect_faces():
     path = os.path.dirname(os.path.realpath(__file__))
     #print(path)
-    faceCascade = cv2.CascadeClassifier(path+"/data/datahaarcascade_frontalface_default.xml")
+    faceCascade = cv2.CascadeClassifier(path+"/data/haarcascade_frontalface_default.xml")
 
     video_capture = cv2.VideoCapture(0)
 
     faces_number = 0
 
-    frames = 2
+    frames = 5
 
     while frames > 0:
 
