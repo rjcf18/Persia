@@ -19,13 +19,12 @@ There are several dependencies to solve in order to run this project.
 ##### Ubuntu / Debain
 
 ```
-  # sudo apt install python3-pip libopencv-dev opencv-data python3-dev portaudio19-dev mpg321
+  # sudo apt install virtualenv python3-pip libopencv-dev opencv-data python-dev python3-dev portaudio19-dev mpg321 cmake
 ```
 
 ##### Python
 
 ```
-  # pip3 install virtualenv
   $ virtualenv pepper-bot -p python3
   $ source pepper-bot/bin/activate
   $ pip install -r py-requirements/dev.txt
@@ -36,20 +35,24 @@ There are several dependencies to solve in order to run this project.
 
 ```
   $ git clone https://github.com/Itseez/opencv.git
+  $ git checkout 3.0.0
   $ cd opencv
   $ mkdir release
   $ cd release
   $ cmake -D CMAKE_BUILD_TYPE=RELEASE \
-	-D CMAKE_INSTALL_PREFIX=/usr/local \
-	-D INSTALL_C_EXAMPLES=ON \
-	-D INSTALL_PYTHON_EXAMPLES=ON \
-	-D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules \
-	-D BUILD_EXAMPLES=ON ..
-	$
+	  -D CMAKE_INSTALL_PREFIX=/usr/local \
+	  -D INSTALL_C_EXAMPLES=ON \
+	  -D INSTALL_PYTHON_EXAMPLES=ON \
+	  -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules \
+	  -D BUILD_EXAMPLES=ON ..
+
+  // In the cmake output make sure that the python3 Interpreter, Libraries, numpy packages path are defined before continuing with the commands
+
   $ make -j4
   # sudo make install
 	# sudo ldconfig
-	# sudo ln -s /usr/local/lib/python3.5/site-packages/cv2.('version').so /path/to/the/virtualenv/folder/lib/python3.5/site-packages/cv2.so
+  # cd /path/to/the/virtualenv/folder/lib/python3.5/site-packages/
+	# sudo ln -s /usr/local/lib/python3.5/site-packages/cv2.('version').so cv2.so
 
 ```
 
