@@ -1,0 +1,9 @@
+pyaudio
+SpeechRecognition
+gtts
+requests
+geocoder
+numpy
+scipy
+wolframalpha
+ipgetter
