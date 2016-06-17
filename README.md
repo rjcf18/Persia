@@ -1,10 +1,14 @@
-# Pepper
+# Pers.I.A. - Personal Intelligent Assistant
 
-A simple "bot", or "assistant" which responds to several commands, using TTS and speech recognition. It runs on Python 2.7+ and Python 3.5+.
+Persia - a simple "bot", or "assistant" which responds to several commands, using TTS and speech recognition. It runs on Python 3.5+.
 
-Computer Vision was introduced in the project, but this part works currently only on Python 2.7+ using Opencv 2.4.  In order to run the whole program in Python 3.4+ or 3.5+ you'll have to install Opencv 3.1.0.
+Computer Vision was also introduced in the project using Opencv 3.0.0. Should you want to run the program on Python 2.7+, Opencv 2.4 should be used. Opencv 2.4 is a bit easier to install by using the following command:
 
-Should you want to run the program in Python 3+ (3.4/3.5) just follow the steps described here:
+	$ sudo apt-get install python2-pip python2-dev libopencv-dev opencv-data
+
+After installing libopencv-dev and opencv-data you'll just have to install the dependencies and you're ready to go.
+
+The steps used to have opencv 3.0.0 running in Python 3+ (3.4/3.5) were based on these tutorials on hot to install opencv on Python 3+:
 
 - http://cyaninfinite.com/tutorials/installing-opencv-in-ubuntu-for-python-3/
 
@@ -14,19 +18,19 @@ Should you want to run the program in Python 3+ (3.4/3.5) just follow the steps 
 
 
 # Dependencies
-There are several dependencies to solve in order to run this project.
+There are several dependencies to solve in order to run this project. Please run the commands exactly how they are described here and in descending order in order to correctly configure your environment.
 
-##### Ubuntu / Debain
+##### Ubuntu / Debian
 
 ```
-  # sudo apt install virtualenv python3-pip libopencv-dev opencv-data python-dev python3-dev portaudio19-dev mpg321 cmake
+  $ sudo apt install virtualenv python3-pip python-dev python3-dev portaudio19-dev mpg321 cmake git v4l2ucp v4l-utils libv4l-dev libgtk2.0-dev pkg-config	
 ```
 
 ##### Python
 
 ```
-  $ virtualenv pepper-bot -p python3
-  $ source pepper-bot/bin/activate
+  $ virtualenv persia-venv -p python3
+  $ source persia-venv/bin/activate
   $ pip install -r py-requirements/dev.txt
 
 ```
@@ -35,10 +39,10 @@ There are several dependencies to solve in order to run this project.
 
 ```
   $ git clone https://github.com/Itseez/opencv.git
+  $ cd opencv/
   $ git checkout 3.0.0
-  $ cd opencv
   $ mkdir release
-  $ cd release
+  $ cd release/
   $ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	  -D CMAKE_INSTALL_PREFIX=/usr/local \
 	  -D INSTALL_C_EXAMPLES=ON \
@@ -49,17 +53,19 @@ There are several dependencies to solve in order to run this project.
   // In the cmake output make sure that the python3 Interpreter, Libraries, numpy packages path are defined before continuing with the commands
 
   $ make -j4
-  # sudo make install
-	# sudo ldconfig
-  # cd /path/to/the/virtualenv/folder/lib/python3.5/site-packages/
-	# sudo ln -s /usr/local/lib/python3.5/site-packages/cv2.('version').so cv2.so
+  $ sudo make install
+  $ sudo ldconfig
+  $ cd ../../pepper-bot/lib/python3.5/site-packages/
+  
+  // In the following command if the file 'cv2.cpython-35m-x86_64-linux-gnu.so' doesn't correspend just replace the file name with the one with the correct version 'cv2.(insert version here or just press tab).so'.
 
-```
+  $ ln -s /usr/local/lib/python3.5/site-packages/cv2.cpython-35m-x86_64-linux-gnu.so cv2.so
+
 
 # Running
 In order to run the program just run the following command after installing all the dependencies:
 
-	$ source pepper-bot/bin/activate
+	$ source persia-venv/bin/activate
 	$ python src/main.py
 
 # Examples of commands that may be used to interact with the bot

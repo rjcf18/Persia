@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from pepper import Pepper
+from persia import Persia
 import logging
 import speech_recognition as sr
 
@@ -9,9 +9,9 @@ def main():
     FORMAT = '%(asctime)s %(filename)s:%(lineno)s [%(levelname)s] %(message)s'
     logging.basicConfig(format=FORMAT, level=logging.DEBUG)
 
-    # Initialize Pepper
-    Pepper.speak('Greetings. My name is Pepper. How could I be of service?')
-    Pepper.initiate_Pepper()
+    # Initialize Persia
+    Persia.speak('Greetings. My name is Persia. How could I be of service?')
+    Persia.initiate_Persia()
 
 if __name__ == '__main__':
     main()

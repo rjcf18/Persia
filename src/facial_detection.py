@@ -11,39 +11,39 @@ def detect_faces():
 
     faces_number = 0
 
-    frames = 5
+    #frames = 5
 
-    while frames > 0:
+    #while frames > 0:
 
-        # Capture frame-by-frame
-        ret, frame = video_capture.read()
+    # Capture frame-by-frame
+    ret, frame = video_capture.read()
 
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-        faces = faceCascade.detectMultiScale(
-            gray,
-            scaleFactor=1.3,
-            minNeighbors=5,
-            minSize=(30, 30),
-            flags=cv2.cv.CV_HAAR_SCALE_IMAGE
-        )
+    faces = faceCascade.detectMultiScale(
+        gray,
+        scaleFactor=1.3,
+        minNeighbors=5,
+        minSize=(30, 30)
+    )
 
-        faces_number = len(faces)
-        #print(faces_number)
+    faces_number = len(faces)
+    #print(faces_number)
 
 
-        # Draw a rectangle around the faces
-        for (x, y, w, h) in faces:
-            cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+    # Draw a rectangle around the faces
+    for (x, y, w, h) in faces:
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
-        frames = frames - 1
+    #frames = frames - 1
 
 
 
     # Display the resulting frame
     #cv2.imshow('Video', frame)
 
-    cv2.imwrite(path+"/data/faces.jpg",frame)
+    # Stores the frame with the detected faces in the data folder
+    cv2.imwrite(path+"/data/frame.jpg",frame)
 
     print(str(faces_number) + " faces detected.")
 

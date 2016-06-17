@@ -18,11 +18,11 @@ logger = logging.getLogger(__name__)
 # wolframalpha API key
 app_id='EETRLL-7A9JE72P53'
 
-class Pepper(object):
+class Persia(object):
 
     # Built-in words
 
-    NAMES = ["peppa", "pepa", "pepper", "peper", "pepar", "peppar"]
+    NAMES = ["persia", "persha", "percha", "pasha", "pacha"]
 
     TIME_COMMANDS = ["what's the time", "what time is it",
                             "tell me the time", "report the time","time please",
@@ -200,9 +200,9 @@ class Pepper(object):
 
 
     @classmethod
-    def initiate_Pepper(self):
+    def initiate_Persia(self):
         """
-        Initializes Pepper and starts the listening loop
+        Initializes Persia and starts the listening loop
         """
 
         # starts the recognizer
@@ -225,7 +225,7 @@ class Pepper(object):
 
                 except sr.UnknownValueError:
                     logger.debug("Could not understand audio")
-                    #Pepper.speak("I'm sorry, but I couldn't understand what you said.")
+                    #Persia.speak("I'm sorry, but I couldn't understand what you said.")
                 except sr.RequestError as e:
                     logger.warn("Could not request results from Google Speech Recognition service: %s", e)
                 except Exception as e:
