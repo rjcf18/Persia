@@ -4,7 +4,7 @@ Persia - a simple "bot", or "assistant" which responds to several commands, usin
 
 Computer Vision was also introduced in the project using Opencv 3.0.0. Should you want to run the program on Python 2.7+, Opencv 2.4 should be used. Opencv 2.4 is a bit easier to install by using the following command:
 
-	$ sudo apt-get install python2-pip python2-dev libopencv-dev opencv-data
+	# sudo apt-get install python2-pip python2-dev libopencv-dev opencv-data
 
 After installing libopencv-dev and opencv-data you'll just have to install the dependencies and you're ready to go.
 
@@ -23,7 +23,7 @@ There are several dependencies to solve in order to run this project. Please run
 ##### Ubuntu / Debian
 
 ```
-  $ sudo apt install virtualenv python3-pip python-dev python3-dev portaudio19-dev mpg321 cmake git v4l2ucp v4l-utils libv4l-dev libgtk2.0-dev pkg-config	
+  # sudo apt install virtualenv python3-pip python-dev python3-dev portaudio19-dev mpg321 cmake git v4l2ucp v4l-utils libv4l-dev libgtk2.0-dev pkg-config	
 ```
 
 ##### Python
@@ -53,8 +53,8 @@ There are several dependencies to solve in order to run this project. Please run
   // In the cmake output make sure that the python3 Interpreter, Libraries, numpy packages path are defined before continuing with the commands
 
   $ make -j4
-  $ sudo make install
-  $ sudo ldconfig
+  # sudo make install
+  # sudo ldconfig
   $ cd ../../pepper-bot/lib/python3.5/site-packages/
   
   // In the following command if the file 'cv2.cpython-35m-x86_64-linux-gnu.so' doesn't correspend just replace the file name with the one with the correct version 'cv2.(insert version here or just press tab).so'.
