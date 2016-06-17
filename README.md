@@ -61,6 +61,7 @@ There are several dependencies to solve in order to run this project. Please run
 
   $ ln -s /usr/local/lib/python3.5/site-packages/cv2.cpython-35m-x86_64-linux-gnu.so cv2.so
 
+```
 
 # Running
 In order to run the program just run the following command after installing all the dependencies:
