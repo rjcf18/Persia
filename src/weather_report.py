@@ -94,10 +94,10 @@ def data_output(data):
     print('---------------------------------------')
 
     m_symbol = 'Celsius'
-    detailed_report = 'There is a temperature of {}'.format(data['temp']) +" degrees " \
+    detailed_report = 'There is a temperature of {}'.format(int(data['temp'])) +" degrees " \
              + m_symbol + ". Sky status: {}".format(data['sky']) + ". "+ \
-             'Maximum and minimum temperatures of: {}. and. {} degrees Celsius respectively. '.format(data['temp_max'], data['temp_min']) + \
-             'Wind Speed of {} meters per second, Degree: {}.'.format(data['wind'], data['wind_deg']) + \
+             'Maximum and minimum temperatures of: {}. and. {} degrees Celsius respectively. '.format(int(data['temp_max']), int(data['temp_min'])) + \
+             'Wind Speed of {} meters per second, Degree: {}.'.format(int(data['wind']), data['wind_deg']) + \
              ' Humidity: {}.'.format(data['humidity']) + ' Cloudiness: {}. '.format(data['cloudiness']) + \
              'Pressure: {} hPa'.format(data['pressure'])
 
