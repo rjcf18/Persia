@@ -18,7 +18,7 @@ The steps used to have opencv 3.0.0 running in Python 3+ (3.4/3.5) were based on
 
 
 # Dependencies
-There are several dependencies to solve in order to run this project. Please run the commands exactly how they are described here and in descending order in order to correctly configure your environment.
+There are several dependencies to solve in order to run this project. Please run the commands exactly how they are described here and in descending order in order to correctly configure your environment. Ensure you are inside the project's main folder before running the commands to configure the environment.
 
 ##### Ubuntu / Debian
 
