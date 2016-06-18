@@ -55,7 +55,7 @@ There are several dependencies to solve in order to run this project. Please run
   $ make -j4
   # sudo make install
   # sudo ldconfig
-  $ cd ../../pepper-bot/lib/python3.5/site-packages/
+  $ cd ../../persia-venv/lib/python3.5/site-packages/
   
   // In the following command if the file 'cv2.cpython-35m-x86_64-linux-gnu.so' doesn't correspond to the existent version just replace the file name with the one with the correct version 'cv2.(insert version here or just press tab).so'.
 
@@ -64,7 +64,7 @@ There are several dependencies to solve in order to run this project. Please run
 ```
 
 # Running
-In order to run the program just run the following command after installing all the dependencies:
+In order to run the program ensure that you are inside the project's main folder and just run the following commands after installing all the dependencies:
 
 	$ source persia-venv/bin/activate
 	$ python src/main.py
