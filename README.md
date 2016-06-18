@@ -1,4 +1,4 @@
-# Pers.I.A. - Personal Intelligent Assistant
+# Pers. I. a. - Personal Intelligent Assistant
 
 Persia - a simple "bot", or "assistant" which responds to several commands, using TTS and speech recognition. It runs on Python 3.5+.
 
