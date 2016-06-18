@@ -22,7 +22,7 @@ def detect_faces():
 
     faces = faceCascade.detectMultiScale(
         gray,
-        scaleFactor=1.3,
+        scaleFactor=1.1,
         minNeighbors=5,
         minSize=(30, 30)
     )
@@ -37,8 +37,6 @@ def detect_faces():
 
     #frames = frames - 1
 
-
-
     # Display the resulting frame
     #cv2.imshow('Video', frame)
 
@@ -52,8 +50,25 @@ def detect_faces():
 
     # When everything is done, release the capture
     video_capture.release()
-    cv2.destroyAllWindows()
+    #cv2.destroyAllWindows()
 
     return faces_number
 
-#detect_faces()
+def take_snapshot():
+    path = os.path.dirname(os.path.realpath(__file__))
+
+    faceCascade = cv2.CascadeClassifier(path+"/data/haarcascade_frontalface_default.xml")
+
+    video_capture = cv2.VideoCapture(0)
+
+    ret, frame = video_capture.read()
+
+    path = os.path.expanduser("~/Pictures")
+
+    # Stores the frame in the pictures folder
+    cv2.imwrite(path+"/snap.jpg",frame)
+
+    video_capture.release()
+
+if __name__ == '__main__':
+    detect_faces()

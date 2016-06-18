@@ -29,7 +29,11 @@ class Persia(object):
                             "what day is it", "which day is today", "what day's it"
                             "report what day is it"]
 
+    NAME_QUERY = ["what's your name", "what is your name", "tell me your name"]
+
     GREETING = ["hello", "greetings"]
+
+    PICTURE = ["take a picture", "take a snap", "take snapshot", "take a pic", "take a pick"]
 
     OPEN_ACTIONS = ["browser", "map", "maps", "gmail", "g mail",
                            "google mail", "facebook", "face book", "you tube",
@@ -100,16 +104,21 @@ class Persia(object):
             sys.exit()
         elif any(word == text for word in self.NAMES):
             self.speak("Yes boss?")
+        elif any(word in text for word in self.NAME_QUERY):
+            self.speak("My name is Persia.")
         elif "how are you" in text:
             self.speak("I'm fine, thank you.")
         elif "thank you" in text:
-            self.speak("Any time boss.")
+            self.speak("You're welcome.")
         elif any("day" in text for word in self.TIME_COMMANDS):
             self.speak(time.strftime("%x"))
         elif any(word in text for word in self.TIME_COMMANDS):
             self.speak(time.strftime("%X"))
         elif any(word in text for word in self.GREETING) or text=="hi":
             self.speak("Hello boss.")
+        elif any(string in text for string in self.PICTURE):
+            take_snapshot()
+            self.speak("Picture taken, boss. I've stored the picture in the pictures folder.")
         elif any(string == text for string in self.SWEAR):
             self.speak("I'm sorry boss, but I was not built to execute such a task.")
         elif "open" in text:
@@ -194,9 +203,9 @@ class Persia(object):
             if "faces" in text:
                 faces = detect_faces()
                 if faces == 1:
-                    self.speak("I'm detecting "+str(faces)+" face. I stored the frame in the data folder.")
+                    self.speak("I'm detecting "+str(faces)+" face. I've stored the frame in the data folder.")
                 else:
-                    self.speak("I'm detecting "+str(faces)+" faces. I stored the frame in the data folder.")
+                    self.speak("I'm detecting "+str(faces)+" faces. I've stored the frame in the data folder.")
 
 
     @classmethod
